@@ -67,7 +67,7 @@ historyAjax = [];
                 if (link.tagName !== 'A') {
                     link = findUpTag(link, "A");
                 }
-                if (link && link.href.indexOf(document.domain) !== -1 && link.target == null) {
+                if (link && link.href.indexOf(document.domain) !== -1 && link.target == '') {
                     history.pushState({ajax: true}, null, link.href);
                     loadPage(link.href);
                     e.preventDefault();            
