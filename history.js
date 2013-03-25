@@ -1,7 +1,11 @@
 var addEvent=function(){return document.addEventListener?function(a,c,d){if(a&&a.nodeName||a===window)a.addEventListener(c,d,!1);else if(a&&a.length)for(var b=0;b<a.length;b++)addEvent(a[b],c,d)}:function(a,c,d){if(a&&a.nodeName||a===window)a.attachEvent("on"+c,function(){return d.call(a,window.event)});else if(a&&a.length)for(var b=0;b<a.length;b++)addEvent(a[b],c,d)}}();
 
 // History Ajax Links
-historyAjax = [];
+historyAjax = [
+    'config' => [
+        'title' => 'History AJAX'
+    ]
+];
 (function() {
     function findUpTag(el, tag) {
         while (el.parentNode) {
@@ -53,7 +57,7 @@ historyAjax = [];
               document.getElementById('main').innerHTML = req.responseText;
               var title = main.getElementsByTagName('h1')[0];
               if (title) {
-                  document.title = 'History AJAX - '+title.innerHTML.replace('&amp;', '&');
+                  document.title = historyAjax.config.title+' - '+title.innerHTML.replace('&amp;', '&');
               }
           }
         }
