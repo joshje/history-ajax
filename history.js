@@ -56,7 +56,8 @@ historyAjax.config = {
               document.getElementById('main').innerHTML = req.responseText;
               var title = main.getElementsByTagName('h1')[0];
               if (title) {
-                  document.title = historyAjax.config.title+' - '+title.innerHTML.replace('&amp;', '&');
+                  var titleText = ('innerText' in document)? title.innerText : title.textContent;
+                  document.title = titleText+' - '+historyAjax.config.title;
               }
           }
         }
